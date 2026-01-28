@@ -11,7 +11,7 @@ const SideBar = ({isMenuOpen, setIsMenuOpen}) => {
   return (
     <div className={`flex flex-col h-screen min-w-72 p-5 dark:bg-gradient-to-b from-[#242124]/30 to-[#000000]/30 border-r border-[#80609F]/30 backdrop-blur-3xl transition-all duration-500 max-md:absolute left-0 z-1 ${!isMenuOpen && 'max-md:-translate-x-full'}`}>
         {/*Logo*/}
-          <img src={theme === 'dark' ? assets.logo_full : assets.logo_full_dark} alt="EduGPT" className='w-full max-w-48' />
+          <img src={theme === 'dark' ? assets.logo_full : assets.logo_full_dark} alt="logo" className='w-full max-w-48' />
           
         {/*New Chat Button*/}
           <button className='flex justify-center items-center w-full py-2 mt-10 text-white bg-gradient-to-r from-[#A456F7] to-[#3D81F6] text-sm rounded-md cursor-pointer'>
@@ -43,7 +43,7 @@ const SideBar = ({isMenuOpen, setIsMenuOpen}) => {
           })
         .map(chat => (
           <div
-            onClick={() => { navigate('/'); setSelectedChat(chat); setIsMenuOpen(flase)}}
+            onClick={() => { navigate('/'); setSelectedChat(chat); setIsMenuOpen(false)}}
             key={chat._id}
             className="p-2 px-4 rounded-md cursor-pointer flex justify-between items-center border border-gray-300 dark:border-[#80609F]/15 hover:bg-gray-100 dark:hover:bg-[#57317C]/20 transition group"
           >
@@ -86,7 +86,7 @@ const SideBar = ({isMenuOpen, setIsMenuOpen}) => {
       <div onClick={() => { navigate('/community'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
         <img src={assets.gallery_icon} className='w-4.5 not-dark:invert' alt="Gallary Icon" />
         <div className='flex flex-col text-sm'>
-          <p>Community Images</p>
+          <p>Community Gallery</p>
         </div>
       </div>
 

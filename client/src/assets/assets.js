@@ -27,6 +27,10 @@ import ai_image10 from "./ai_image10.jpg";
 import ai_image11 from "./ai_image11.jpg";
 import ai_image12 from "./ai_image12.jpg";
 
+import video1 from "./video1.mp4";
+import video2 from "./video2.mp4";
+
+
 export const assets = {
     logo,
     logo_full,
@@ -47,7 +51,7 @@ export const assets = {
 
 export const dummyUserData = {
     "_id": "689c6deed410acddc0d95a0e",
-    "name": "GreatStack",
+    "name": "Harsh Dhanawade",
     "email": "admin@example.com",
     "password": "$2b$10$VESVdPDjL5LF.KCU6jKyqeXNSLASAAfpR2kkIJExtMO.PJvZJAudy",
     "credits": 200,
@@ -83,7 +87,7 @@ export const dummyChats = [
     {
         "_id": "689de4bbaa932dc3a8ef6cd7",
         "userId": "689c6deed410acddc0d95a0e",
-        "userName": "GreatStack",
+        "userName": "Harsh",
         "name": "New Chat",
         "messages": [
             {
@@ -98,6 +102,20 @@ export const dummyChats = [
                 "isPublished": true,
                 "role": "assistant",
                 "content": ai_image11,
+                "timestamp": 1755178194747,
+            },
+            {
+                "isImage": false,
+                "isPublished": false,
+                "role": "user",
+                "content": "Draw a 5% video",
+                "timestamp": 1755178179612,
+            },
+            {
+                "isVideo": true,
+                "isPublished": true,
+                "role": "assistant",
+                "content": video1,
                 "timestamp": 1755178194747,
             }
         ],
@@ -267,13 +285,13 @@ export const dummyChats = [
         ],
         "createdAt": "2025-08-13T17:29:52.421Z",
         "updatedAt": "2026-01-14T09:39:19.046Z",
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "_id": Date.now(),
         "userId": "gs123456789",
         "name": "New Chat",
-        "userName": "GreatStack",
+        "userName": "Harsh",
         "messages": [],
         "createdAt": "2025-08-13T17:29:52.421Z",
         "updatedAt": "2025-08-14T09:39:19.046Z",
@@ -283,31 +301,31 @@ export const dummyChats = [
 export const dummyPublishedImages = [
     {
         "imageUrl": ai_image11,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image10,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image9,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image8,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image7,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image6,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image5,
-        "userName": "GreatStack"
+        "userName": "Harsh"
     },
     {
         "imageUrl": ai_image4,
@@ -326,3 +344,16 @@ export const dummyPublishedImages = [
         "userName": "GreatStack"
     }
 ]
+
+export const dummyPublishedVideos = [
+    {
+        "videoUrl": video1,
+        "userName": "Harsh",
+        "prompt": "Draw a 5% video"
+    },
+    {
+        "videoUrl": video2,
+        "userName": "GreatStack",
+        "prompt": "Count to 5"
+    }
+];
