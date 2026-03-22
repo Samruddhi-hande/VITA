@@ -78,7 +78,7 @@ Include formulas, explanations, and visualization hints.
 
 # -------------------- Example Usage --------------------
 # if __name__ == "__main__":
-#     OPENAI_API_KEY = "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"
+#     OPENAI_API_KEY = "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"
 #     KB_JSON_PATH = "kb.json"
 
 #     vita_generator = VITAScriptGenerator(
@@ -92,5 +92,5 @@ Include formulas, explanations, and visualization hints.
 
 from langchain.llms import OpenAI
 
-llm = OpenAI(model_name="phi-3-mini", temperature=0.7, openai_api_key="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")
+llm = OpenAI(model_name="phi-3-mini", temperature=0.7, openai_api_key="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")
 print(llm("Explain Newton's First Law in one sentence"))

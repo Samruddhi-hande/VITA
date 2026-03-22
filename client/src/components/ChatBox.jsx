@@ -19,6 +19,67 @@ const ChatBox = () => {
 
   const onSubmit = async (e) => {
       e.preventDefault()
+      if (!prompt.trim()) return;
+      
+      const userPrompt = prompt;
+      const newMessage = {
+          isImage: mode === 'image',
+          isPublished: isPublished,
+          role: "user",
+          content: userPrompt,
+          timestamp: Date.now(),
+      };
+
+      setMessages(prev => [...prev, newMessage]);
+      setPrompt('');
+
+      if (mode === 'text' || mode === 'video') {
+        setLoading(true);
+        try {
+          const response = await fetch('http://127.0.0.1:5000/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: userPrompt, mode: mode })
+          });
+          let data;
+          try {
+            data = await response.json();
+          } catch(err) {
+            throw new Error("Failed to parse backend response as JSON");
+          }
+          
+          if (response.ok) {
+            setMessages(prev => [...prev, {
+              isImage: false,
+              isVideo: mode === 'video',
+              isPublished: false,
+              role: "assistant",
+              content: mode === 'video' ? data.videoUrl : data.script,
+              timestamp: Date.now(),
+            }]);
+          } else {
+            setMessages(prev => [...prev, {
+              isImage: false,
+              isVideo: false,
+              isPublished: false,
+              role: "assistant",
+              content: "Error: " + (data.error || "Failed to generate"),
+              timestamp: Date.now(),
+            }]);
+          }
+        } catch (error) {
+          setMessages(prev => [...prev, {
+            isImage: false,
+            isVideo: false,
+            isPublished: false,
+            role: "assistant",
+            content: "The connection dropped. This usually happens if the video takes too long to render or the server restarts. Please try again and wait about 30 seconds!",
+            timestamp: Date.now(),
+          }]);
+        } finally {
+          setLoading(false);
+        }
+      }
   }
 
   useEffect(() => {

@@ -97,7 +97,7 @@
 
 # # -------------------- Example Usage --------------------
 # if __name__ == "__main__":
-#     OPENAI_API_KEY = "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"
+#     OPENAI_API_KEY = "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"
 #     KB_JSON_PATH = "kb.json"
 
 #     topic_query = input("🔍 Enter a topic to generate script for: ")
